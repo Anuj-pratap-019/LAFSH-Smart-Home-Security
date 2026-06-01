@@ -1,3 +1,5 @@
-# Hide MATLAB files from GitHub language statistics
-*.m linguist-detectable=false
-*.m linguist-documentation=true
+# Hide MATLAB files and folder from GitHub language statistics
+*.m linguist-vendored
+src/** linguist-vendored
+run_*.m linguist-vendored
+main.m linguist-vendored
