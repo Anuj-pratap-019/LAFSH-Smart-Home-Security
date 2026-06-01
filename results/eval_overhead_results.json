@@ -1,0 +1,32 @@
+{
+    "schemes": [
+        "LAFSH",
+        "Basic-PW",
+        "DTLS-PSK",
+        "TLS-Cert"
+    ],
+    "registration_bytes": [
+        150,
+        80,
+        200,
+        4000
+    ],
+    "authentication_bytes": [
+        200,
+        100,
+        500,
+        5000
+    ],
+    "totp_bytes": [
+        20,
+        0,
+        0,
+        0
+    ],
+    "total_bytes": [
+        370,
+        180,
+        700,
+        9000
+    ]
+}

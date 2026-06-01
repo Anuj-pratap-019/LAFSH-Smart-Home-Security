@@ -1,0 +1,32 @@
+# MATLAB generated files
+*.asv
+*.m~
+*.mex*
+*.mlappinstall
+*.mlpkginstall
+*.slx.r*
+
+# Simulation outputs (regenerated on run)
+results/*.mat
+figures/*.png
+figures/*.fig
+
+# Course materials
+FOG_2026_Course_Handout.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
+# Python cache and build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
