@@ -5,6 +5,16 @@ import io
 import contextlib
 import copy
 from PIL import Image
+import inspect
+
+def st_image(image, caption=None, **kwargs):
+    # Check Streamlit's st.image signature for version compatibility
+    sig = inspect.signature(st.image)
+    if 'use_container_width' in sig.parameters:
+        return st.image(image, caption=caption, use_container_width=True)
+    else:
+        return st.image(image, caption=caption, use_column_width=True)
+
 
 # Add src folder to module path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'src')))
@@ -295,7 +305,7 @@ with col_graphs:
             
             with tabs[0]:
                 if os.path.exists("figures/node_deployment.png"):
-                    st.image(Image.open("figures/node_deployment.png"), caption="Deployment Topology Map", use_column_width=True)
+                    st_image(Image.open("figures/node_deployment.png"), caption="Deployment Topology Map")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -309,7 +319,7 @@ with col_graphs:
             
             with tabs[1]:
                 if os.path.exists("figures/cluster_formation.png"):
-                    st.image(Image.open("figures/cluster_formation.png"), caption="LEACH-SEP Cluster Formation", use_column_width=True)
+                    st_image(Image.open("figures/cluster_formation.png"), caption="LEACH-SEP Cluster Formation")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -323,7 +333,7 @@ with col_graphs:
             
             with tabs[2]:
                 if os.path.exists("figures/network_stats.png"):
-                    st.image(Image.open("figures/network_stats.png"), caption="Alive Nodes & Energy lifetime over 50 rounds", use_column_width=True)
+                    st_image(Image.open("figures/network_stats.png"), caption="Alive Nodes & Energy lifetime over 50 rounds")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -345,7 +355,7 @@ with col_graphs:
             
             with tabs[0]:
                 if os.path.exists("figures/auth_latency.png"):
-                    st.image(Image.open("figures/auth_latency.png"), caption="Registration and Mutual Auth Latency (ms)", use_column_width=True)
+                    st_image(Image.open("figures/auth_latency.png"), caption="Registration and Mutual Auth Latency (ms)")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -359,7 +369,7 @@ with col_graphs:
             
             with tabs[1]:
                 if os.path.exists("figures/comm_overhead.png"):
-                    st.image(Image.open("figures/comm_overhead.png"), caption="Bandwidth Exchanged (Bytes)", use_column_width=True)
+                    st_image(Image.open("figures/comm_overhead.png"), caption="Bandwidth Exchanged (Bytes)")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -376,7 +386,7 @@ with col_graphs:
             
             with tabs[2]:
                 if os.path.exists("figures/energy_comparison.png"):
-                    st.image(Image.open("figures/energy_comparison.png"), caption="Log-scale Energy comparison per authentication (μJ)", use_column_width=True)
+                    st_image(Image.open("figures/energy_comparison.png"), caption="Log-scale Energy comparison per authentication (μJ)")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -393,7 +403,7 @@ with col_graphs:
             
             with tabs[3]:
                 if os.path.exists("figures/security_radar.png"):
-                    st.image(Image.open("figures/security_radar.png"), caption="Security Comparison Radar Chart", use_column_width=True)
+                    st_image(Image.open("figures/security_radar.png"), caption="Security Comparison Radar Chart")
                     st.markdown("""
                         <div class="expl-box">
                             <strong>💡 What this graph shows:</strong><br>
@@ -408,7 +418,7 @@ with col_graphs:
         elif active_choice == 3:
             st.markdown("Attack Scenarios completed successfully! Showing security scoring radar:")
             if os.path.exists("figures/security_radar.png"):
-                st.image(Image.open("figures/security_radar.png"), caption="Security Comparison Radar Chart", use_column_width=True)
+                st_image(Image.open("figures/security_radar.png"), caption="Security Comparison Radar Chart")
             
             st.markdown("""
                 <div class="expl-box">
@@ -427,7 +437,7 @@ with col_graphs:
         elif active_choice == 4:
             st.markdown("RBAC Policy Matrix Heatmap:")
             if os.path.exists("figures/rbac_heatmap.png"):
-                st.image(Image.open("figures/rbac_heatmap.png"), caption="Access heatmap rules (Y=Allow, N=Deny)", use_column_width=True)
+                st_image(Image.open("figures/rbac_heatmap.png"), caption="Access heatmap rules (Y=Allow, N=Deny)")
             
             st.markdown("""
                 <div class="expl-box">
@@ -457,10 +467,10 @@ with col_graphs:
             tabs = st.tabs(["Quick Deployment Map", "Quick Cluster Groups"])
             with tabs[0]:
                 if os.path.exists("figures/node_deployment.png"):
-                    st.image(Image.open("figures/node_deployment.png"), caption="300 Nodes Scattered Placement Map", use_column_width=True)
+                    st_image(Image.open("figures/node_deployment.png"), caption="300 Nodes Scattered Placement Map")
             with tabs[1]:
                 if os.path.exists("figures/cluster_formation.png"):
-                    st.image(Image.open("figures/cluster_formation.png"), caption="Cluster Groups Layout", use_column_width=True)
+                    st_image(Image.open("figures/cluster_formation.png"), caption="Cluster Groups Layout")
             
             st.markdown("""
                 <div class="expl-box">
