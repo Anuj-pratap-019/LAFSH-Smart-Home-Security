@@ -1,0 +1,3 @@
+# Hide MATLAB files from GitHub language statistics
+*.m linguist-detectable=false
+*.m linguist-documentation=true
