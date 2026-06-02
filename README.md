@@ -1,8 +1,11 @@
-# LAFSH — Lightweight Authentication for Fog-Based Smart Homes
+# LAFSH — Lightweight Authentication for Fog-Based Smart Homes (Python & Streamlit Dashboard + MATLAB)
 
-A MATLAB simulation of a lightweight authentication and access control mechanism for fog-based smart home systems, featuring mutual authentication, TOTP two-factor auth, device fingerprinting, and RBAC — evaluated over LEACH-SEP clustered heterogeneous IoT networks.
+A complete Python and MATLAB implementation of a lightweight authentication and access control mechanism for fog-based smart home systems, featuring mutual authentication, TOTP two-factor auth, device fingerprinting, and RBAC — evaluated over LEACH-SEP clustered heterogeneous IoT networks.
+
+Includes a fully interactive **Streamlit Web Dashboard** deployed live.
 
 > **Course**: CSE4702 — Fog Computing | BTech 3rd Year, Semester 6
+
 
 ---
 
